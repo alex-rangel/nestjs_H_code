@@ -1,0 +1,32 @@
+na primeita aula aprende os conceitos basicos de teste de software, e a importancia de se fazer testes
+
+o nestjs ja vem com um modulo de teste, o jest, que é um framework de teste de javascript
+
+para criar um teste, basta criar um arquivo com a extensão .spec.ts
+
+para rodar o teste, basta rodar o comando npm run test, mas eu tambem posso rodar um teste especifico com o comando npm run test -t 'o caminho do arquivo de teste'
+
+mas eu posso tambem rodar o teste em modo watch, que é o modo que o jest fica observando as alterações no codigo e roda o teste automaticamente, para isso eu rodo o comando npm run test:watch e o caminho do arquivo que deseja testar para rodar um teste especifico
+
+mas tambem é preciso fazer algumas configurações no vscode para que não de erro com a importação dos arquivos, para isso tem que ir no preferences: Open User settings e adicionar o seguinte codigo: "typescript.preferences.importModuleSpecifier": "relative", para que o vscode entenda que a importação é relativa
+
+e para acessar essa configuração do vscode, basta usar o atalho ctrl + shift + p e digitar preferences: Open User settings
+
+---------------------------------------------------------------------------------------------------------
+
+função que foi testada:
+
+export const somar = (a: number, b: number) => a + b;
+
+---------------------------------------------------------------------------------------------------------
+
+arquivo de teste:
+
+import { somar } from "../utils/somar";
+
+test('Este é o meu primeiro teste', () => {
+
+    const resultado = somar(5, 3);
+
+    expect(resultado).toEqual(8);
+});

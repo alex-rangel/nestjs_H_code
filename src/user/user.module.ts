@@ -1,9 +1,9 @@
 import { Module, NestModule, MiddlewareConsumer, RequestMethod, forwardRef } from '@nestjs/common';
 import { UserController } from './user.controller';
 import { UserService } from './user.service';
-import { PrismaModule } from 'src/prisma/prisma.module';
-import { UseIdCheckMiddleware } from 'src/middleware/use-id-check.middleware';
-import { AuthModule } from 'src/auth/auth.module';
+import { PrismaModule } from '../prisma/prisma.module';
+import { AuthModule } from '../auth/auth.module';
+import { UseIdCheckMiddleware } from '../middleware/use-id-check.middleware';
 
 @Module({
   imports: [PrismaModule, forwardRef(() => AuthModule)],

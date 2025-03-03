@@ -1,15 +1,15 @@
 import { BadRequestException, Body, Controller, FileTypeValidator, Headers, MaxFileSizeValidator, ParseFilePipe, Post, Req, UploadedFile, UploadedFiles, UseGuards, UseInterceptors } from "@nestjs/common";
 import { AuthService } from "./auth.service";
-import { UserService } from "src/user/user.service";
 import { AuthLoginDto } from "./dto/auth-login.dto";
 import { AuthRegisterDto } from "./dto/auth-register.dto";
 import { AuthForgetDto } from "./dto/auth-forget.dto";
 import { AuthResetDto } from "./dto/auth-reset.dto";
-import { AuthGuard } from "src/guards/auth.guard";
-import { User } from "src/decorators/user.decorator";
 import { join } from "path";
-import { FileService } from "src/file/file.service";
 import { FileFieldsInterceptor, FileInterceptor, FilesInterceptor } from "@nestjs/platform-express";
+import { UserService } from "../user/user.service";
+import { FileService } from "../file/file.service";
+import { AuthGuard } from "../guards/auth.guard";
+import { User } from "../decorators/user.decorator";
 
 @Controller('auth')
 export class AuthController {

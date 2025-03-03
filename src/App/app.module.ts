@@ -1,14 +1,14 @@
 import { forwardRef, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UserModule } from 'src/user/user.module';
-import { PrismaModule } from 'src/prisma/prisma.module';
-import { AuthModule } from 'src/auth/auth.module';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { ConfigModule } from '@nestjs/config';
-import { FileModule } from 'src/file/file.module';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { PugAdapter } from '@nestjs-modules/mailer/dist/adapters/pug.adapter';
+import { UserModule } from '../user/user.module';
+import { PrismaModule } from '../prisma/prisma.module';
+import { AuthModule } from '../auth/auth.module';
+import { FileModule } from '../file/file.module';
 
 @Module({
   imports: [
