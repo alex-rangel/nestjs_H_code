@@ -6,7 +6,6 @@ import { AuthForgetDto } from "./dto/auth-forget.dto";
 import { AuthResetDto } from "./dto/auth-reset.dto";
 import { join } from "path";
 import { FileFieldsInterceptor, FileInterceptor, FilesInterceptor } from "@nestjs/platform-express";
-import { UserService } from "../user/user.service";
 import { FileService } from "../file/file.service";
 import { AuthGuard } from "../guards/auth.guard";
 import { User } from "../decorators/user.decorator";
@@ -16,7 +15,6 @@ export class AuthController {
 
     constructor(
         private readonly authService: AuthService,
-        private readonly userService: UserService,
         private readonly fileService: FileService
     ) { }
 

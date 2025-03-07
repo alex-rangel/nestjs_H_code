@@ -11,7 +11,7 @@ import { Roles } from '../decorators/roles.decorator';
 import { ParamId } from '../decorators/param-id.decorator';
 
 // usando um guard do throttle de forma local
-@UseGuards(ThrottlerGuard)
+//@UseGuards(ThrottlerGuard)
 @UseGuards(AuthGuard, RoleGuard)
 @Controller('user')
 export class UserController {

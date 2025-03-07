@@ -101,7 +101,7 @@ describe('UserService', () => {
         test('method delete', async () => {
             const result = await userService.delete(1);
 
-            expect(result).toEqual("Usuário deletado com sucesso!");
+            expect(result).toEqual({ success: true });
         });
     });
 

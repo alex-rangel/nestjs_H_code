@@ -33,7 +33,7 @@ describe('FileService', () => {
 
 
             const filename = 'photo-test.png';
-            fileService.upload(photo, filename);
+            fileService.upload(photo, filename);    
         });
 
 

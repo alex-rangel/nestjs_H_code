@@ -10,7 +10,7 @@ export class UserService {
 
   constructor(private prisma: PrismaService) { }
 
-  async create({ name, email, password,role }: CreateUserDto) {
+  async create({ name, email, password, role }: CreateUserDto) {
 
     const salt = await bcrypt.genSalt();
 
@@ -40,7 +40,7 @@ export class UserService {
 
   async update(id: number, { email, name, password, birthAt, role }: UpdatePutUserDto) {
 
-    if ( !(await this.show(id)) ){
+    if (!(await this.show(id))) {
       throw new NotFoundException(`O usuário ${id} não existe.`);
     }
 
@@ -58,29 +58,29 @@ export class UserService {
 
   async updatePartial(id: number, { name, email, password, birthAt, role }: UpdateUserDto) {
 
-    if ( !(await this.show(id)) ){
+    if (!(await this.show(id))) {
       throw new NotFoundException(`O usuário ${id} não existe.`);
     }
-    
+
     const data: any = {};
 
-    if (birthAt){
+    if (birthAt) {
       data.birthAt = new Date(birthAt);
     }
 
-    if (name){
+    if (name) {
       data.name = name;
     }
 
-    if (email){
+    if (email) {
       data.email = email;
     }
 
-    if (password){
+    if (password) {
       data.password = password;
     }
 
-    if (role){
+    if (role) {
       data.role = role;
     }
 
@@ -94,22 +94,23 @@ export class UserService {
 
   async delete(id: number) {
 
-    if (!(await this.show(id))){
+    if (!(await this.show(id))) {
       throw new NotFoundException(`O usuário ${id} não existe.`);
     }
 
     try {
-       await this.prisma.user.delete({
+      await this.prisma.user.delete({
         where: {
           id
         }
-        
       });
-     
+
+      return { success: true };
+
     } catch (error) {
       throw new Error(`Erro ao deletar o usuário ${id}`);
     };
 
-    return "Usuário deletado com sucesso!";
+
   }
 }

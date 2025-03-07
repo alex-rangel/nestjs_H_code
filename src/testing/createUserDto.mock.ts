@@ -6,5 +6,5 @@ export const createUserDto: CreateUserDto = {
                 email: 'alex@email.com',
                 name: 'Alex Rangel',
                 password: '123456',
-                role: Role.User
+                role: Role.Admin
             }

@@ -2,8 +2,8 @@ import { Role } from "../enums/role.enum";
 
 export const userList = [
     {
-      name: 'Joao Rangel',
-      email: 'joao@hcode.com.br',
+      name: 'Alex Rangel',
+      email: 'alex@email.com.br',
       birthAt: new Date('2000-01-01'),
       id: 1,
       password: '$2b$10$KTCMumuAvsZcxgEXCA4.x.sqeqtrWXmB7ptFGkF.f32XW3OE3Awb6',
