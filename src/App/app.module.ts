@@ -13,7 +13,11 @@ import { FileModule } from '../file/file.module';
 @Module({
   imports: [
     // Configuração do ConfigModule para carregar as variáveis de ambiente
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      //configuração para setar qual arquivo .env será carregado de acordo com o ambiente
+      envFilePath: process.env.NODE_ENV ? 
+        `.env.${process.env.NODE_ENV}` : '.env'
+    }),
     // Configuração do ThrottlerModule para limitar as requisições e assim evitar ataques de força bruta
     ThrottlerModule.forRoot({
       throttlers: [

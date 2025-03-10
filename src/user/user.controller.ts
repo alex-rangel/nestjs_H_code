@@ -18,7 +18,7 @@ export class UserController {
 
   constructor(private readonly userService: UserService) {}
 
-  @Roles(Role.Admin)
+  //@Roles(Role.Admin)
   @Post()
   async create(@Body() body: CreateUserDto) {
     return  await this.userService.create(body);

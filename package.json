@@ -6,6 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
@@ -17,7 +18,9 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "cross-env NODE_ENV=test DATABASE_URL=mysql://alex:1234@localhost:3306/h_code_teste jest --config ./test/jest-e2e.json",
+    "preprod": "npm test && npm run test:e2e", 
+    "prod": "npm run build"
   },
   "dependencies": {
     "@nestjs-modules/mailer": "^2.0.2",
@@ -34,6 +37,8 @@
     "bcrypt": "^5.1.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.7",
     "nodemailer": "^6.10.0",
     "pug": "^3.0.3",
     "reflect-metadata": "^0.2.2",
